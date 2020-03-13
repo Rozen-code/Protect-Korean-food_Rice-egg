@@ -7,7 +7,7 @@ public class SCha : MonoBehaviour
 {
     public void ChaS()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("RunMain");
     }
 
    

@@ -26,8 +26,11 @@ public class CatchWhatFallsBoxCtrl : MonoBehaviour
     }
 
     public float speed;
+    public float maxSpawnTime;
 
     private bool hideRun; // Hide 상태에서 계속 적인 갱신을 없애기 위한 변수
+    private float spawnTime;
+    private float delTime;
     private float randomPos;
     private float startHeight;
 
@@ -48,10 +51,22 @@ public class CatchWhatFallsBoxCtrl : MonoBehaviour
         collider2d.enabled = false;
         startHeight = GetComponentInParent<Transform>().position.y;
         hideRun = true;
+        spawnTime = Random.Range(3, maxSpawnTime);
+        bcState = BCState.HIDE;
     }
 
     void Update()
     {
+        if(bcState == BCState.HIDE)
+            delTime += Time.deltaTime;
+
+        if (delTime >= spawnTime)
+        {
+            delTime = 0.0f;
+            spawnTime = Random.Range(0, maxSpawnTime);
+            bcState = BCState.APPEAR;
+        }
+
         ChangeBCState();
     }
 
@@ -65,7 +80,7 @@ public class CatchWhatFallsBoxCtrl : MonoBehaviour
                     collider2d.enabled = false;
                     fit = (FIT)Random.Range(0, Enum.GetNames(typeof(FIT)).Length);
                     // img 변경
-                    randomPos = Random.Range(-2.5f, 2.5f);
+                    randomPos = Random.Range(-3f, 3f);
                     this.transform.position = new Vector3(randomPos, startHeight, 0);
                     hideRun = false;
                 }
@@ -83,7 +98,19 @@ public class CatchWhatFallsBoxCtrl : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "Floor")
+        {
+            bcState = BCState.HIDE;
+            if (coll.gameObject.tag == "Player")
+            {
+                // 스코어 갱신 함수 넣어야됨.
+            }
+        }
+    }
+
+    /* private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "Floor")
         {
@@ -94,5 +121,5 @@ public class CatchWhatFallsBoxCtrl : MonoBehaviour
 
             }
         }
-    }
+    } */
 }

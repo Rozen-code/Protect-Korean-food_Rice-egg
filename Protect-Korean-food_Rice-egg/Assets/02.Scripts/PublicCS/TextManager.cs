@@ -15,13 +15,13 @@ public class TextManager : MonoBehaviour
     private void Awake()
     {
         timer = GameObject.Find("Timer").GetComponent<Timer>();
-        // scoreManager = GameObject.Find("Score").GetComponent<ScoreManager>();
+        scoreManager = GameObject.Find("Score").GetComponent<ScoreManager>();
 
         // Debug.Log(scoreManager);
 
         timerText = GameObject.Find("Timer").GetComponent<Text>();
-        // scoreText = GameObject.Find("Score").GetComponent<Text>();
-        // lifeText = GameObject.Find("Life").GetComponent<Text>();
+        scoreText = GameObject.Find("Score").GetComponent<Text>();
+        lifeText = GameObject.Find("Life").GetComponent<Text>();
     }
 
     void Start()
@@ -32,7 +32,7 @@ public class TextManager : MonoBehaviour
     void Update()
     {
         timerText.text = timer.nowTime.ToString();
-        //scoreText.text = scoreManager.nowTotalScore.ToString();
-        //lifeText.text = scoreManager.playerLife.ToString();
+        scoreText.text = scoreManager.nowTotalScore.ToString();
+        lifeText.text = scoreManager.playerLife.ToString();
     }
 }
