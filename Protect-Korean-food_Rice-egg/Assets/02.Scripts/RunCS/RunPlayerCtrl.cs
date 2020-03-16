@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RunPlayerCtrl : MonoBehaviour
 {
-    private float minY;
-    private float maxY;
     private int step;
 
     private float[] floorY;
@@ -27,8 +25,6 @@ public class RunPlayerCtrl : MonoBehaviour
             floorY[i - 1] = transformFloor[i].position.y;
             // Debug.Log(floorY[i - 1]);
         }
-        minY = floorY[0];
-        maxY = floorY[floorY.Length - 1];
         step = 1;
     }
 
@@ -53,7 +49,7 @@ public class RunPlayerCtrl : MonoBehaviour
         else if (step > floorY.Length - 1)
             step = floorY.Length - 1;
         else
-            Debug.Log("error about step");
+            Debug.Log("현재 위치 Step : " + step);
         this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf);
     }
 }

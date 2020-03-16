@@ -19,9 +19,13 @@ public class TextManager : MonoBehaviour
 
         // Debug.Log(scoreManager);
 
-        timerText = GameObject.Find("Timer").GetComponent<Text>();
-        scoreText = GameObject.Find("Score").GetComponent<Text>();
-        lifeText = GameObject.Find("Life").GetComponent<Text>();
+        timerText = TextInstance("Timer");
+        scoreText = TextInstance("Score");
+        lifeText = TextInstance("Life");
+
+        // Debug.Log(timerText);
+        // Debug.Log(scoreText);
+        // Debug.Log(lifeText);
     }
 
     void Start()
@@ -31,8 +35,21 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.text = timer.nowTime.ToString();
-        scoreText.text = scoreManager.nowTotalScore.ToString();
-        lifeText.text = scoreManager.playerLife.ToString();
+        TextUpdate(timerText, timer.nowTime.ToString());
+        TextUpdate(scoreText, scoreManager.nowTotalScore.ToString());
+        TextUpdate(lifeText, scoreManager.playerLife.ToString());
+    }
+
+    void TextUpdate(Text text, string textString)
+    {
+        if (text != null)
+        {
+            text.text = textString;
+        }
+    }
+
+    Text TextInstance(string obj)
+    {
+        return (GameObject.Find(obj) != null) ? GameObject.Find(obj).GetComponent<Text>() : null;
     }
 }
