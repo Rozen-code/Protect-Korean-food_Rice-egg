@@ -49,7 +49,7 @@ public class RunPlayerCtrl : MonoBehaviour
         else if (step > floorY.Length - 1)
             step = floorY.Length - 1;
         else
-            Debug.Log("현재 위치 Step : " + step);
+            // Debug.Log("현재 위치 Step : " + step);
         this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf);
     }
 }

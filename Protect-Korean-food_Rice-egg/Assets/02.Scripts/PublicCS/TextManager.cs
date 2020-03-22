@@ -40,16 +40,16 @@ public class TextManager : MonoBehaviour
         TextUpdate(lifeText, scoreManager.playerLife.ToString());
     }
 
+    Text TextInstance(string obj)
+    {
+        return (GameObject.Find(obj) != null) ? GameObject.Find(obj).GetComponent<Text>() : null;
+    }
+
     void TextUpdate(Text text, string textString)
     {
         if (text != null)
         {
             text.text = textString;
         }
-    }
-
-    Text TextInstance(string obj)
-    {
-        return (GameObject.Find(obj) != null) ? GameObject.Find(obj).GetComponent<Text>() : null;
     }
 }
