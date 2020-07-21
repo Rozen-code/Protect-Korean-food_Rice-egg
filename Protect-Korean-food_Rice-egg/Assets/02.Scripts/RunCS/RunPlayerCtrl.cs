@@ -42,6 +42,7 @@ public class RunPlayerCtrl : MonoBehaviour
         ChangePos();
     }
 
+    // 현재 달리는 위치 벗어나지 못하게 막는 코드
     void ChangePos()
     {
         if (step < 0)
@@ -50,6 +51,7 @@ public class RunPlayerCtrl : MonoBehaviour
             step = floorY.Length - 1;
         else
             // Debug.Log("현재 위치 Step : " + step);
+
         this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf);
     }
 }

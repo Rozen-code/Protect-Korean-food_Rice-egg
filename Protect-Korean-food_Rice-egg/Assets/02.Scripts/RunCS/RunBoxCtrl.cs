@@ -127,7 +127,7 @@ public class RunBoxCtrl : MonoBehaviour
                 if (this.transform.position.x <= -4)
                     bcState = BCState.DIE;
                 else
-                    transform.Translate((-1) * speed, 0, 0);
+                    transform.Translate((-1) * speed, 0, 0); // 실질적 이동
                 break;
             case 2: // DIE
                 this.transform.position = spawnPos;
