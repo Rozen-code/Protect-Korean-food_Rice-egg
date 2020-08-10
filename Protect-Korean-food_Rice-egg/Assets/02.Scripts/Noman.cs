@@ -10,6 +10,7 @@ public class Noman : MonoBehaviour
         // Strat
         // 희희희
         //실화냐^-^
+        // 프로젝트 힘내!! ^^7
     }
 
     // Update is called once per frame
