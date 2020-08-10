@@ -7,7 +7,8 @@ public class Noman : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Strat
+        // Strat
+        // 희희희
     }
 
     // Update is called once per frame
