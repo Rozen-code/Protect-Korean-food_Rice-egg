@@ -18,4 +18,7 @@ public class Noman : MonoBehaviour
     {
         
     }
+    public void onClick() {
+        Debug.Log("작동중...");
+    }
 }
