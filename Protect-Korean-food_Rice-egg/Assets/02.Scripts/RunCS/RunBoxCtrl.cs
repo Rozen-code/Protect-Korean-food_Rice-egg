@@ -33,7 +33,6 @@ public class RunBoxCtrl : MonoBehaviour
     private float delTime;
     private float spawnTime;
     private float collHeightHalf;
-
     private float[] floorY;
 
     private Vector3 spawnPos;
@@ -42,12 +41,15 @@ public class RunBoxCtrl : MonoBehaviour
     private BoxCollider2D coll2D;
     private WeightedRandom rand;
     private ScoreManager scoreManager;
+    private Mgr mgr;
 
     private void Awake()
     {
         coll2D = GetComponent<BoxCollider2D>();
         rand = GameObject.Find("Score").GetComponent<WeightedRandom>();
         scoreManager = GameObject.Find("Score").GetComponent<ScoreManager>();
+        mgr = GameObject.Find("Spawner").GetComponent<Mgr>();
+
         Debug.Log(collHeightHalf);
     }
 
@@ -117,10 +119,21 @@ public class RunBoxCtrl : MonoBehaviour
                     bcState = BCState.APPEAR;
                     delTime = 0.0f; // 소환 되는 타임 초기화
                     spawnTime = Random.Range(1.0f, maxSpawnTime);
-
                     fit = (FIT)rand.RC(); // 소환되는 종류 설정
+
                     step = Random.Range(0, floorY.Length); // 몇번째 줄에 소환되는지 설정
-                    this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf); // 소환되는 위치 설정
+                    if(step == 0 && mgr.stepcheck[0] != true) {
+                        this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf); // 소환되는 위치 설정
+                        mgr.stepcheck[0] = true;
+                    }
+                    else if (step == 1 && mgr.stepcheck[1] != true) {
+                        this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf); // 소환되는 위치 설정
+                        mgr.stepcheck[1] = true;
+                    }
+                    else if (step == 2 && mgr.stepcheck[2] != true) {
+                        this.transform.position = new Vector2(this.transform.position.x, floorY[step] + collHeightHalf); // 소환되는 위치 설정
+                        mgr.stepcheck[2] = true;
+                    }
                 }
                 break;
             case 1: // APPEAR
@@ -132,6 +145,15 @@ public class RunBoxCtrl : MonoBehaviour
             case 2: // DIE
                 this.transform.position = spawnPos;
                 coll2D.enabled = false;
+                if (step == 0 && mgr.stepcheck[0] != false) {
+                    mgr.stepcheck[0] = false;
+                }
+                else if (step == 1 && mgr.stepcheck[1] != false) {
+                    mgr.stepcheck[1] = false;
+                }
+                else if (step == 2 && mgr.stepcheck[2] != false) {
+                    mgr.stepcheck[2] = false;
+                }
                 bcState = BCState.HIDE;
                 break;
         }
