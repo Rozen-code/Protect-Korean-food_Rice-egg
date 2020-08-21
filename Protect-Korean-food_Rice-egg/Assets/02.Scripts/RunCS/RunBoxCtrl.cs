@@ -8,22 +8,22 @@ public class RunBoxCtrl : MonoBehaviour
 {
     public enum FIT
     {
-        BOSS_LIFE,
-        ONION,
-        GREEN_ONION,
-        PEPPER,
-        SESAME_SEED, 
-        SMALL_PUDDLE,
-        BIG_PUDDLE,
-        FASTFOOD,
-        MOLE
+        BOSS_LIFE,  //보스 체력
+        ONION,  //양파
+        GREEN_ONION,    //파
+        PEPPER,     //고추
+        SESAME_SEED,    //참깨
+        SMALL_PUDDLE,   //장애물(작은 웅덩이)
+        BIG_PUDDLE, //장애물(큰 웅덩이)
+        FASTFOOD,   //패스트 푸드
+        MOLE    //두더지, 스파이
     }
 
     public enum BCState
     {
-        HIDE,
-        APPEAR,
-        DIE
+        HIDE,   //숨겨짐
+        APPEAR, //보여짐
+        DIE //죽음
     }
 
     public float speed;

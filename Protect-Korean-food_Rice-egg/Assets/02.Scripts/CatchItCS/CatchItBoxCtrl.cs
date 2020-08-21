@@ -13,20 +13,20 @@ public class CatchItBoxCtrl : MonoBehaviour
     {
         BOSS_LIFE,
         PLAYER_LIFE,
-        RICE,
-        BUCKWHEAT,
-        FLOUR,
-        BEAN_SPROUTS,
+        RICE,   //쌀
+        BUCKWHEAT,  //메밀
+        FLOUR,  //밀가루
+        BEAN_SPROUTS,   //콩나물
     }
 
     // Appearing Object Type
     public enum AOT 
     {
-        TOWNSMEN,
-        STUFF_FF,
-        STIFF_FF,
-        Oil_FF,
-        DESSERT_FF
+        TOWNSMEN,   //시민
+        STUFF_FF,   //재료 패스트 푸드
+        STIFF_FF,   //딱딱한 패스트 푸드
+        Oil_FF, //기름 패스트 푸드
+        DESSERT_FF  //디저트 패스트 푸드
     }
 
     // Box Controller State
