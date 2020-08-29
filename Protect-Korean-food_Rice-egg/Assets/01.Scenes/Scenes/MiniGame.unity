@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 336093962}
   - component: {fileID: 336093964}
   - component: {fileID: 336093963}
+  - component: {fileID: 336093965}
   m_Layer: 5
   m_Name: GameImg
   m_TagString: Untagged
@@ -477,6 +478,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336093961}
   m_CullTransparentMesh: 0
+--- !u!114 &336093965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336093961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc696755ae8e46147ba706dd7249253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameList:
+  - {fileID: 21300000, guid: 61dddea65518a434fb59d71c31366c3d, type: 3}
+  - {fileID: 21300000, guid: 554ae5e45415fd84a917a63472ec1094, type: 3}
+  - {fileID: 21300000, guid: 0a0da4f284f8be347b5522a7736f2fbd, type: 3}
+  - {fileID: 21300000, guid: 2d6308a74d4a31c40bf46c0e17128782, type: 3}
 --- !u!1 &364741130
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,8 +576,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 336093965}
+        m_MethodName: MiniGameLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1191,8 +1209,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 336093965}
+        m_MethodName: MiniGameRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
