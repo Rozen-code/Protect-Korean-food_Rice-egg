@@ -43,5 +43,6 @@ public class MiniGameList : MonoBehaviour
 
     void ChangeMiniGame() {
         this.GetComponent<Image>().sprite = miniGameList[ListNumber];
+        this.name = miniGameList[ListNumber].name;
     }
 }
